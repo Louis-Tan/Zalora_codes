@@ -50,8 +50,8 @@ browser = Selenium::WebDriver.for :chrome
 	Then (/^I log in using my credentials$/) do
 		sleep 3
     	input = browser.find_element(:id, "LoginForm_email")
-		input.send_keys($email)
-		browser.find_element(:id, "LoginForm_password").send_keys($password)
+		input.send_keys("zal@ora.com")
+		browser.find_element(:id, "LoginForm_password").send_keys("asdf")
 		browser.find_element(:xpath, "//*[@id='form-account-login']/div[2]/fieldset/div[3]/div[2]/button").click
 		
 	end
@@ -64,19 +64,15 @@ browser = Selenium::WebDriver.for :chrome
 		men.click
 		wait = Selenium::WebDriver::Wait.new(:timeout => 10)
 		sleep 3
-		browser.find_element(:link_text,"ACCESSORIES").click
+		browser.find_element(:link_text,"CLOTHING").click
 	end
 
-	Then (/^I add the second item to the wishlist$/)do
-		sleep 10
-		#wait = Selenium::WebDriver::Wait.new(:timeout => 15)		
-		browser.find_element(:xpath,"//*[@id='ST135AA00OZJSG']/a/span[1]/img").click
-		sleep 10
-		wishlist = browser.find_element(:xpath,"//*[@id='wishlist-link']")
-		browser.mouse.move_to wishlist
-		
+	#Then(/^I check for a sale item$/)do
+	#end 
 
-	end
+
+	#Then(/^I add the item to the wishlist$/)do
+	#end
 
 	Then (/^I register a new user$/)do
 		register = browser.find_element(:xpath,"//*[@id='page']/header/div[1]/div[1]/span[4]/ul/li[1]/i")
