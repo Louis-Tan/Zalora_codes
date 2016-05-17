@@ -27,8 +27,8 @@ browser = Selenium::WebDriver.for :chrome
 
 	Then(/^I click on zalora homepage from search result$/)do
 		sleep 10
-		link = browser.find_element(By.link_text("Online Shopping Singapore. Shop Fashion | ZALORA SG"))
-		link.click
+		element = browser.find_element(:link_text,"Online Shopping Singapore. Shop Fashion | ZALORA SG")
+		element.click
 	end
 
 	Given (/^I go to zalora home page$/)do
